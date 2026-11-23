@@ -1,0 +1,57 @@
+[project]
+name = "ptdata"
+dynamic = ["version"]
+description = "Point-in-time client for the PtData fundamentals API."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [{ name = "PtData S.A.", email = "info@ptdata.io" }]
+keywords = ["finance", "fundamentals", "point-in-time", "ptdata"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "pandas>=2.2",
+    "requests>=2.31",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "build>=1",
+]
+
+[project.urls]
+Homepage = "https://ptdata.io"
+Documentation = "https://api.ptdata.io/docs"
+Source = "https://github.com/ptdata-io/ptdata-python"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/ptdata/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ptdata"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/ptdata",
+    "tests",
+    "examples/*.py",
+    "README.md",
+    "REPORT.md",
+    "LICENSE",
+    "pyproject.toml",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "live: calls the live PtData API; skipped unless PTDATA_LIVE=1",
+]
