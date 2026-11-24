@@ -49,6 +49,10 @@ include = [
     "LICENSE",
     "pyproject.toml",
 ]
+exclude = [
+    ".v",
+    ".v/**",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
