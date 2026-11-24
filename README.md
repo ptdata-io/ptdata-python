@@ -8,18 +8,8 @@ PtData has no prices. It does not serve consensus estimates or intraday data. Th
 
 ## Install
 
-The intended install, once the package is published, is:
-
 ```bash
 pip install ptdata
-```
-
-Not yet published; install from a local checkout:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -e ".[dev]"
 ```
 
 Python 3.11 or newer. Runtime dependencies are `pandas` and `requests`.

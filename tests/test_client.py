@@ -26,7 +26,7 @@ def test_user_agent_auth_and_redacted_cache(tmp_path, caplog):
     assert fund.metrics["revenue"].value == 122092000000.0
     assert session.calls[0]["headers"]["Authorization"] == f"Bearer {secret}"
     assert session.calls[0]["headers"]["User-Agent"] == USER_AGENT
-    assert session.calls[0]["headers"]["User-Agent"] == "ptdata-python/0.1.0"
+    assert session.calls[0]["headers"]["User-Agent"] == "ptdata-python/0.1.1"
     assert secret not in caplog.text
     cached = list(tmp_path.rglob("*.json"))
     assert len(cached) == 1
